@@ -1,41 +1,43 @@
 import * as dotenv from 'dotenv';
 
-import { IDatabaseConfig } from './interfaces/dbConfig.interface';
+import { IDatabaseConfig } from './interfaces/database.config.interface';
 
 dotenv.config();
-const logging = process.env.DB_LOGGING === 'true';
+const logging = process.env.DATABASE_LOGGING === 'true';
+const dialect = process.env.DATABASE_DIALECT;
 
 export const databaseConfig: IDatabaseConfig = {
   development: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME_DEVELOPMENT,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    dialect: process.env.DB_DIALECT,
+    username: process.env.DATABASE_DEVELOPMENT_USER,
+    password: process.env.DATABASE_DEVELOPMENT_PASSWORD,
+    database: process.env.DATABASE_DEVELOPMENT_NAME,
+    host: process.env.DATABASE_DEVELOPMENT_HOST,
+    port: process.env.DATABASE_DEVELOPMENT_PORT,
+    dialect,
     dialectOptions: {
       bigNumberStrings: true,
     },
     logging,
   },
   test: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME_TEST,
-    host: process.env.DB_HOST,
-    port: process.env.DB_PORT,
-    dialect: process.env.DB_DIALECT,
+    username: process.env.DATABASE_TEST_USER,
+    password: process.env.DATABASE_TEST_PASSWORD,
+    database: process.env.DATABASE_TEST_NAME,
+    host: process.env.DATABASE_TEST_HOST,
+    port: process.env.DATABASE_TEST_PORT,
+    dialect,
     dialectOptions: {
       bigNumberStrings: true,
     },
     logging,
   },
   production: {
-    username: process.env.DB_USER,
-    password: process.env.DB_PASS,
-    database: process.env.DB_NAME_PRODUCTION,
-    host: process.env.DB_HOST,
-    dialect: process.env.DB_DIALECT,
+    username: process.env.DATABASE_PRODUCTION_USER,
+    password: process.env.DATABASE_PRODUCTION_PASSWORD,
+    database: process.env.DATABASE_PRODUCTION_NAME,
+    host: process.env.DATABASE_PRODUCTION_HOST,
+    port: process.env.DATABASE_PRODUCTION_PORT,
+    dialect,
     dialectOptions: {
       bigNumberStrings: true,
     },

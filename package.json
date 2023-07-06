@@ -30,6 +30,7 @@
     "@nestjs/platform-express": "^9.0.0",
     "@nestjs/sequelize": "^9.0.0",
     "@nestjs/swagger": "^6.1.2",
+    "@types/bcrypt": "^5.0.0",
     "@types/passport-jwt": "^3.0.7",
     "@types/passport-local": "^1.0.34",
     "@types/sequelize": "^4.28.14",
